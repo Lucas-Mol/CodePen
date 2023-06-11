@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "electron": "electron .",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -13,6 +14,7 @@
     "@types/react": "18.2.11",
     "@types/react-dom": "18.2.4",
     "autoprefixer": "10.4.14",
+    "electron": "^25.1.0",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
     "lucide-react": "^0.241.0",
