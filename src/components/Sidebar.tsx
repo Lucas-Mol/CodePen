@@ -66,7 +66,7 @@ export function Sidebar({
           Mode<label className="text-sm">(Pencil)</label>:
         </label>
         <button
-          className="flex w-11 justify-center rounded-full bg-white py-[2px] text-center"
+          className="flex w-11 justify-center rounded-full bg-gray-50 py-[2px] text-center"
           id="eraser"
           onClick={onEraserClick}
         >
