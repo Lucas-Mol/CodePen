@@ -1,0 +1,11 @@
+{
+  "name": "codepen",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "electron": "electron ."
+  },
+  "dependencies": {
+    "electron": "^25.1.0"
+  }
+}
