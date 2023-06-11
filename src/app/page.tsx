@@ -21,7 +21,7 @@ export default function Home() {
 
     canvas.width = window.innerWidth * 2
     canvas.height = window.innerHeight * 2
-    canvas.style.width = `${window.innerWidth - 16}px`
+    canvas.style.width = `${window.innerWidth}px`
     canvas.style.height = `${window.innerHeight}px`
 
     const context = canvas.getContext('2d')
@@ -83,10 +83,10 @@ export default function Home() {
       const a = pixels[i + 3]
 
       if (r === 31 && g === 31 && b === 35 && a === 255) {
-        pixels[i] = 0 // R
-        pixels[i + 1] = 0 // G
-        pixels[i + 2] = 0 // B
-        pixels[i + 3] = 0 // A
+        pixels[i] = 0
+        pixels[i + 1] = 0
+        pixels[i + 2] = 0
+        pixels[i + 3] = 0
       }
     }
 
