@@ -42,7 +42,7 @@ export function Canva({
     const { offsetX, offsetY } = nativeEvent
     if (!contextRef!.current) return
 
-    const x = offsetX + 16
+    const x = offsetX
     const y = offsetY
     contextRef!.current.beginPath()
     contextRef!.current.moveTo(x, y)
@@ -67,7 +67,7 @@ export function Canva({
 
     const { offsetX, offsetY } = nativeEvent
 
-    const x = offsetX + 16
+    const x = offsetX
     const y = offsetY
     contextRef!.current.strokeStyle = color
     contextRef!.current.lineWidth = weight
