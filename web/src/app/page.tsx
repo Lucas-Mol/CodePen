@@ -1,6 +1,5 @@
 'use client'
 import { Canva } from '@/components/Canva'
-import { Header } from '@/components/Header'
 import { Sidebar } from '@/components/Sidebar'
 import { useRef, useState } from 'react'
 
@@ -8,6 +7,7 @@ export default function Home() {
   const [color, setColor] = useState<string>('black')
   const [weight, setWeight] = useState<number>(3)
 
+  // eslint-disable-next-line no-unused-vars
   const [linesBackward, setLinesBackward] = useState<
     { points: { x: number; y: number }[]; color: string; stroke: number }[]
   >([])
@@ -103,7 +103,6 @@ export default function Home() {
 
   return (
     <>
-      <Header />
       <Sidebar
         setColor={setColor}
         weight={weight}

@@ -1,6 +1,10 @@
 'use client'
-import { Trash, Eraser, Pencil, Undo, Download } from 'lucide-react'
 import React, { ChangeEvent, useState } from 'react'
+import { DowndloadButton } from './DownloadButton'
+import { UndoButton } from './UndoButton'
+import { ClearButton } from './ClearButton'
+import { EraserButton } from './EraserButton'
+import { PencilButton } from './PencilButton'
 
 interface Props {
   setColor: Function
@@ -35,7 +39,7 @@ export function Sidebar({
     setWeight(weight)
   }
 
-  const onTrashClick = (event: React.MouseEvent) => {
+  const onClearClick = (event: React.MouseEvent) => {
     handleClear()
   }
 
@@ -59,45 +63,15 @@ export function Sidebar({
     setIsDrawingMode(true)
   }
 
-  function eraserButton() {
-    return (
-      <div className="mt-auto py-3">
-        <label className="block pb-2" htmlFor="eraser">
-          Mode<label className="text-sm">(Pencil)</label>:
-        </label>
-        <button
-          className="flex w-11 justify-center rounded-full bg-gray-50 py-[2px] text-center"
-          id="eraser"
-          onClick={onEraserClick}
-        >
-          <Eraser color="#60a5fa" />
-        </button>
-      </div>
-    )
-  }
-
-  function pencilButton() {
-    return (
-      <div className="mt-auto py-3">
-        <label className="block pb-2" htmlFor="pencil">
-          Mode<label className="text-sm">(Eraser)</label>:
-        </label>
-        <button
-          className="flex w-11 justify-center rounded-full bg-green-600 py-[2px] text-center"
-          id="pencil"
-          onClick={onPencilClick}
-        >
-          <Pencil color="#2c2c31" />
-        </button>
-      </div>
-    )
-  }
-
   return (
     <div className="absolute left-0 top-0 z-[1000] mt-[115px] h-[calc(100%-115px)] w-32 border-r-[1px] border-r-gray-100 border-opacity-20 p-1">
       <div className="m-0 flex h-full list-none flex-col items-start justify-center gap-3 p-1">
         <div className="mt-auto pl-3 pr-3">
-          {isDrawingMode ? eraserButton() : pencilButton()}
+          {isDrawingMode ? (
+            <EraserButton onEraserClick={onEraserClick} />
+          ) : (
+            <PencilButton onPencilClick={onPencilClick} />
+          )}
           <div className="py-3">
             <label className="block" htmlFor="color">
               Color:
@@ -125,27 +99,11 @@ export function Sidebar({
           </div>
         </div>
         <div className="mb-3 mt-auto flex w-full flex-col gap-y-2">
-          <button
-            className="flex justify-center rounded-full bg-orange-400 py-[4px] text-center"
-            id="undo"
-            onClick={onDownloadClick}
-          >
-            <Download color="#eff6ff" />
-          </button>
-          <button
-            className="flex justify-center rounded-full bg-blue-400 py-[4px] text-center"
-            id="undo"
-            onClick={onUndoClick}
-          >
-            <Undo color="#eff6ff" />
-          </button>
-          <button
-            className="flex justify-center rounded-full bg-red-600 py-[4px] text-center"
-            id="clear"
-            onClick={onTrashClick}
-          >
-            <Trash color="#fef2f2" />
-          </button>
+          <DowndloadButton onDownloadClick={onDownloadClick} />
+
+          <UndoButton onUndoClick={onUndoClick} />
+
+          <ClearButton onClearClick={onClearClick} />
         </div>
       </div>
     </div>

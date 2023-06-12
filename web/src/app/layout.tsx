@@ -4,6 +4,7 @@ import {
   Roboto_Flex as Roboto,
   Bai_Jamjuree as BaiJamjuree,
 } from 'next/font/google'
+import { Header } from '@/components/Header'
 
 // Fonts instances
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' })
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={`${roboto.variable} ${baiJamjuree.variable} overflow-hidden bg-gray-700 font-sans text-gray-100`}
       >
+        <Header />
         {children}
       </body>
     </html>
