@@ -8,7 +8,7 @@ interface Props {
 export function DowndloadButton({ onDownloadClick }: Props) {
   return (
     <button
-      className="flex justify-center rounded-full bg-orange-400 py-[4px] text-center"
+      className="flex justify-center rounded-full bg-green-800 py-[4px] text-center"
       id="undo"
       onClick={onDownloadClick}
     >

@@ -2,3 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  @keyframes spin-reverse {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+
+  .animate-spin-reverse {
+    animation: spin-reverse 1s linear;
+  }
+}

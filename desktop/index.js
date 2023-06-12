@@ -3,6 +3,7 @@ const path = require('path')
 
 function createWindow() {
   const window = new BrowserWindow({
+    title: 'CodePen',
     autoHideMenuBar: true,
     resizable: false,
     width: 1280,

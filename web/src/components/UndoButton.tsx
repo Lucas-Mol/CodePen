@@ -8,7 +8,7 @@ interface Props {
 export function UndoButton({ onUndoClick }: Props) {
   return (
     <button
-      className="flex justify-center rounded-full bg-blue-400 py-[4px] text-center"
+      className="flex justify-center rounded-full bg-blue-800 py-[4px] text-center"
       id="undo"
       onClick={onUndoClick}
     >

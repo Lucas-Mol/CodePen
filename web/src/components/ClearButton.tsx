@@ -8,7 +8,7 @@ interface Props {
 export function ClearButton({ onClearClick }: Props) {
   return (
     <button
-      className="flex justify-center rounded-full bg-red-600 py-[4px] text-center"
+      className="flex justify-center rounded-full bg-red-800 py-[4px] text-center"
       id="clear"
       onClick={onClearClick}
     >

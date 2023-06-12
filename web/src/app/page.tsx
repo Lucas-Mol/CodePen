@@ -1,6 +1,6 @@
 'use client'
 import { Canva } from '@/components/Canva'
-import { Sidebar } from '@/components/Sidebar'
+import { CanvaSidebar } from '@/components/CanvaSidebar'
 import { useRef, useState } from 'react'
 
 export default function Home() {
@@ -103,7 +103,7 @@ export default function Home() {
 
   return (
     <>
-      <Sidebar
+      <CanvaSidebar
         setColor={setColor}
         weight={weight}
         setWeight={setWeight}
