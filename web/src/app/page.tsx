@@ -1,10 +1,13 @@
 'use client'
 import { Canva } from '@/components/Canva'
 import { CanvaSidebar } from '@/components/CanvaSidebar'
+import { UploadModal } from '@/components/Modal/UploadModal'
 import { useRef, useState } from 'react'
 
 export default function Home() {
-  const [color, setColor] = useState<string>('black')
+  const [uploadModal, setUploadModal] = useState<boolean>(false)
+
+  const [color, setColor] = useState<string>('#eff6ff')
   const [weight, setWeight] = useState<number>(3)
 
   // eslint-disable-next-line no-unused-vars
@@ -101,6 +104,10 @@ export default function Home() {
     downloadLink.click()
   }
 
+  const handleUpload = () => {
+    setUploadModal(!uploadModal)
+  }
+
   return (
     <>
       <CanvaSidebar
@@ -110,6 +117,7 @@ export default function Home() {
         handleClear={handleClear}
         handleUndo={handleUndo}
         handleDownload={handleDownload}
+        handleUpload={handleUpload}
       />
       <Canva
         color={color}
@@ -119,6 +127,10 @@ export default function Home() {
         startCanva={startCanva}
         setLines={setLinesBackward}
       />
+
+      {uploadModal && (
+        <UploadModal onCloseClick={() => setUploadModal(false)} />
+      )}
     </>
   )
 }

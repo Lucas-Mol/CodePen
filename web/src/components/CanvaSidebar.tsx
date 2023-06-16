@@ -16,8 +16,9 @@ interface Props {
   handleClear: Function
   handleUndo: Function
   handleDownload: Function
+  handleUpload: Function
 }
-let colorCache: string = 'black'
+let colorCache: string = '#eff6ff'
 let weightCache: number = 3
 
 export function CanvaSidebar({
@@ -27,6 +28,7 @@ export function CanvaSidebar({
   handleClear,
   handleUndo,
   handleDownload,
+  handleUpload,
 }: Props) {
   const [isDrawingMode, setIsDrawingMode] = useState<boolean>(true)
 
@@ -52,6 +54,10 @@ export function CanvaSidebar({
 
   const onDownloadClick = (event: React.MouseEvent) => {
     handleDownload()
+  }
+
+  const onUploadClick = (event: React.MouseEvent) => {
+    handleUpload()
   }
 
   const onToolSwitchClick = (event: React.MouseEvent) => {
@@ -88,10 +94,11 @@ export function CanvaSidebar({
               Color:
             </label>
             <input
+              defaultValue="#eff6ff"
               onChange={onColorChange}
               type="color"
               id="color"
-              className=" flex w-11 justify-center rounded-lg bg-gray-600 text-center"
+              className=" flex w-8 justify-center bg-transparent text-center"
             />
           </div>
           <div className="py-[5%]">
@@ -113,7 +120,7 @@ export function CanvaSidebar({
           </div>
         </div>
         <div className="mb-[2%] mt-auto flex w-full flex-col gap-y-2">
-          <UploadCloudButton />
+          <UploadCloudButton onUploadClick={onUploadClick} />
 
           <DowndloadButton onDownloadClick={onDownloadClick} />
 
