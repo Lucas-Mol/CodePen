@@ -6,7 +6,6 @@ import { ClearButton } from './ClearButton'
 import { EraserMode } from './EraserMode'
 import { PencilMode } from './PencilMode'
 import { ToolSwitcher } from './ToolSwitcher'
-import { UploadCloudButton } from './UploadCloudButton'
 import Link from 'next/link'
 
 interface Props {
@@ -16,7 +15,6 @@ interface Props {
   handleClear: Function
   handleUndo: Function
   handleDownload: Function
-  handleUpload: Function
 }
 let colorCache: string = '#eff6ff'
 let weightCache: number = 3
@@ -28,7 +26,6 @@ export function CanvaSidebar({
   handleClear,
   handleUndo,
   handleDownload,
-  handleUpload,
 }: Props) {
   const [isDrawingMode, setIsDrawingMode] = useState<boolean>(true)
 
@@ -56,10 +53,6 @@ export function CanvaSidebar({
     handleDownload()
   }
 
-  const onUploadClick = (event: React.MouseEvent) => {
-    handleUpload()
-  }
-
   const onToolSwitchClick = (event: React.MouseEvent) => {
     isDrawingMode ? onEraserClick() : onPencilClick()
   }
@@ -77,7 +70,7 @@ export function CanvaSidebar({
   }
 
   return (
-    <div className="absolute left-0 top-0 z-[1000] mt-[115px] h-[calc(100%-115px)] w-32 border-r-[1px] border-r-gray-100 border-opacity-20 p-1">
+    <div className="absolute left-0 top-0 z-[1000] mt-[115px] h-[calc(100%-115px)] w-32 border-r-[1px] border-r-gray-100 border-opacity-20 bg-gray-700 p-1">
       <div className="m-0 flex h-full list-none flex-col items-start justify-center p-1">
         <div className="flex w-full flex-col gap-y-1 py-3 pl-2">
           <Link className="text-xl font-bold" href={'/'}>
@@ -120,8 +113,6 @@ export function CanvaSidebar({
           </div>
         </div>
         <div className="mb-[2%] mt-auto flex w-full flex-col gap-y-2">
-          <UploadCloudButton onUploadClick={onUploadClick} />
-
           <DowndloadButton onDownloadClick={onDownloadClick} />
 
           <UndoButton onUndoClick={onUndoClick} />
